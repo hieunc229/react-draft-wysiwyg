@@ -8,6 +8,7 @@ import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import { Dropdown, DropdownOption } from '../../../components/Dropdown';
 import './styles.css';
+import RenderIcon from '../../Icon';
 
 export default class History extends Component {
   static propTypes = {
@@ -48,10 +49,7 @@ export default class History extends Component {
         aria-label="rdw-history-control"
         title={title || translations['components.controls.history.history']}
       >
-        <img
-          src={getFirstIcon(config)}
-          alt=""
-        />
+        <RenderIcon icon={getFirstIcon(config)} />
         {options.indexOf('undo') >= 0 && <DropdownOption
           value="undo"
           onClick={this.onChange}
@@ -59,10 +57,7 @@ export default class History extends Component {
           className={classNames('rdw-history-dropdownoption', undo.className)}
           title={undo.title || translations['components.controls.history.undo']}
         >
-          <img
-            src={undo.icon}
-            alt=""
-          />
+          <RenderIcon icon={undo.icon} />
         </DropdownOption>}
         {options.indexOf('redo') >= 0 && <DropdownOption
           value="redo"
@@ -71,10 +66,7 @@ export default class History extends Component {
           className={classNames('rdw-history-dropdownoption', redo.className)}
           title={redo.title || translations['components.controls.history.redo']}
         >
-          <img
-            src={redo.icon}
-            alt=""
-          />
+          <RenderIcon icon={redo.icon} />
         </DropdownOption>}
       </Dropdown>
     );
@@ -95,10 +87,7 @@ export default class History extends Component {
           disabled={undoDisabled}
           title={undo.title || translations['components.controls.history.undo']}
         >
-          <img
-            src={undo.icon}
-            alt=""
-          />
+          <RenderIcon icon={undo.icon} />
         </Option>}
         {options.indexOf('redo') >= 0 && <Option
           value="redo"
@@ -107,10 +96,7 @@ export default class History extends Component {
           disabled={redoDisabled}
           title={redo.title || translations['components.controls.history.redo']}
         >
-          <img
-            src={redo.icon}
-            alt=""
-          />
+          <RenderIcon icon={redo.icon} />
         </Option>}
       </div>
     );

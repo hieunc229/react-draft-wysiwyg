@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import Option from '../../../components/Option';
 import Spinner from '../../../components/Spinner';
 import './styles.css';
+import RenderIcon from '../../Icon';
 
 class LayoutComponent extends Component {
   static propTypes: Object = {
@@ -336,10 +337,7 @@ class LayoutComponent extends Component {
           onClick={onExpandEvent}
           title={title || translations['components.controls.image.image']}
         >
-          <img
-            src={icon}
-            alt=""
-          />
+          <RenderIcon icon={icon} />
         </Option>
         {expanded ? this.renderAddImageModal() : undefined}
       </div>

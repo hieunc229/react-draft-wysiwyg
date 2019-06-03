@@ -37,10 +37,10 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={left.title || translations['components.controls.textalign.left']}
         >
-          <img
-            src={left.icon}
-            alt=""
-          />
+          {typeof left.icon === 'string' ?
+            <img alt="" src={left.icon} />
+            : left.icon
+          }
         </Option>}
         {options.indexOf('center') >= 0 && <Option
           value="center"
@@ -49,10 +49,10 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={center.title || translations['components.controls.textalign.center']}
         >
-          <img
-            src={center.icon}
-            alt=""
-          />
+          {typeof center.icon === 'string' ?
+            <img alt="" src={center.icon} />
+            : center.icon
+          }
         </Option>}
         {options.indexOf('right') >= 0 && <Option
           value="right"
@@ -61,10 +61,10 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={right.title || translations['components.controls.textalign.right']}
         >
-          <img
-            src={right.icon}
-            alt=""
-          />
+          {typeof right.icon === 'string' ?
+            <img alt="" src={right.icon} />
+            : right.icon
+          }
         </Option>}
         {options.indexOf('justify') >= 0 && <Option
           value="justify"
@@ -73,10 +73,10 @@ export default class TextAlign extends Component {
           onClick={onChange}
           title={justify.title || translations['components.controls.textalign.justify']}
         >
-          <img
-            src={justify.icon}
-            alt=""
-          />
+          {typeof justify.icon === 'string' ?
+            <img alt="" src={justify.icon} />
+            : justify.icon
+          }
         </Option>}
       </div>
     );

@@ -9,6 +9,7 @@ import { getFirstIcon } from '../../../utils/toolbar';
 import Option from '../../../components/Option';
 import { Dropdown, DropdownOption } from '../../../components/Dropdown';
 import './styles.css';
+import RenderIcon from '../../Icon';
 
 class LayoutComponent extends Component {
   static propTypes = {
@@ -170,10 +171,7 @@ class LayoutComponent extends Component {
           aria-expanded={showModal}
           title={link.title || translations['components.controls.link.link']}
         >
-          <img
-            src={link.icon}
-            alt=""
-          />
+          <RenderIcon icon={link.icon} />
         </Option>}
         {options.indexOf('unlink') >= 0 && <Option
           disabled={!currentState.link}
@@ -182,10 +180,7 @@ class LayoutComponent extends Component {
           onClick={this.removeLink}
           title={unlink.title || translations['components.controls.link.unlink']}
         >
-          <img
-            src={unlink.icon}
-            alt=""
-          />
+          <RenderIcon icon={unlink.icon} />
         </Option>}
         {expanded && showModal ? this.renderAddLinkModal() : undefined}
       </div>

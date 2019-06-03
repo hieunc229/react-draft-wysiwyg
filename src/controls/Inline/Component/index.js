@@ -23,7 +23,9 @@ export default class Inline extends Component {
   };
 
   renderInFlatList(): Object {
+
     const { config, currentState, onChange, translations } = this.props;
+
     return (
       <div className={classNames('rdw-inline-wrapper', config.className)} aria-label="rdw-inline-control">
         {
@@ -40,10 +42,10 @@ export default class Inline extends Component {
                 }
                 title={config[style].title || translations[`components.controls.inline.${style}`]}
               >
-                <img
-                  alt=""
-                  src={config[style].icon}
-                />
+                {typeof config[style].icon === "string" ?
+                  <img alt="" src={config[style].icon} />
+                  : config[style].icon
+                }
               </Option>),
             )
         }
@@ -63,6 +65,8 @@ export default class Inline extends Component {
       translations,
     } = this.props;
     const { className, dropdownClassName, title } = config;
+    let icon = config[style].icon;
+    let iconConfig = getFirstIcon(config);
     return (
       <Dropdown
         className={classNames('rdw-inline-dropdown', className)}
@@ -75,10 +79,10 @@ export default class Inline extends Component {
         aria-label="rdw-inline-control"
         title={title}
       >
-        <img
-          src={getFirstIcon(config)}
-          alt=""
-        />
+        {typeof icon === "string" ?
+          <img alt="" src={iconConfig} />
+          : iconConfig
+        }
         {
           config.options
             .map((style, index) =>
@@ -92,10 +96,10 @@ export default class Inline extends Component {
                 }
                 title={config[style].title || translations[`components.controls.inline.${style}`]}
               >
-                <img
-                  src={config[style].icon}
-                  alt=""
-                />
+                {typeof config[style].icon === "string" ?
+                  <img alt="" src={config[style].icon} />
+                  : config[style].icon
+                }
               </DropdownOption>))
         }
       </Dropdown>
